@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MotionLayout Chameleon Cards</string>
+    <string name="upcoming_events"><b>Upcoming Events</b></string>
+    <string name="monday">Monday 17</string>
+    <string name="tuesday">Tue 18</string>
+    <string name="wednesday">Wed 19</string>
+    <string name="name">Lily\'s Stage Play</string>
+</resources>
