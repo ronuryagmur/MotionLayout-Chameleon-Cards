@@ -4,5 +4,9 @@
     <string name="monday">Monday 17</string>
     <string name="tuesday">Tue 18</string>
     <string name="wednesday">Wed 19</string>
-    <string name="name">Lily\'s Stage Play</string>
+    <string name="name"><b>Lily\'s Stage Play</b></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="interested"><b>Interested</b></string>
+    <string name="utah"><b>Cambridgeshire, Utah</b></string>
 </resources>
