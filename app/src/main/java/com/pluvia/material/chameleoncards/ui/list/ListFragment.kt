@@ -1,11 +1,15 @@
-package com.pluvia.material.chameleoncards
+package com.pluvia.material.chameleoncards.ui.list
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.pluvia.material.chameleoncards.EventAdapter
 import com.pluvia.material.chameleoncards.databinding.FragmentListBinding
 import com.pluvia.material.chameleoncards.utils.AutoAlignLayoutManager
 import com.pluvia.material.chameleoncards.utils.StartSnapHelper
@@ -26,6 +30,8 @@ class ListFragment : Fragment() {
     private var param2: String? = null
     private var _binding: FragmentListBinding? = null
     private val binding get() = _binding!!
+    private var eventAdapter: EventAdapter? = null
+    private val vm: ListViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +47,14 @@ class ListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentListBinding.inflate(inflater, container, false)
+
+        vm.snappedEventItemPosition.observe(viewLifecycleOwner, Observer {
+            Log.d("listFragment","$it")
+            eventAdapter!!.notifyItemChanged(it)
+            eventAdapter!!.notifyItemChanged(it-1)
+            eventAdapter!!.notifyItemChanged(it+1)
+        })
+
         setUpEventAdapter()
         return binding.root
     }
@@ -48,7 +62,8 @@ class ListFragment : Fragment() {
     private fun setUpEventAdapter(){
         binding.rvList.layoutManager = AutoAlignLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvList.setHasFixedSize(true)
-        binding.rvList.adapter = EventAdapter()
+        eventAdapter = EventAdapter(vm)
+        binding.rvList.adapter = eventAdapter
         StartSnapHelper().attachToRecyclerView(binding.rvList)
     }
 
