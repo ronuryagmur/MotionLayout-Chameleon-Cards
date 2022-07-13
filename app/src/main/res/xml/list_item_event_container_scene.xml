@@ -14,9 +14,13 @@
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/cl_container"
+            android:id="@+id/event_item_bottom_layout"
+            motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="1" />
+            android:layout_height="45dp"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="visible"
+            android:alpha="1"
+            motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
 </MotionScene>

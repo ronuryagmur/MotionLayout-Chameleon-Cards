@@ -13,13 +13,23 @@ class AutoAlignLayoutManager : LinearLayoutManager {
     constructor(context: Context, orientation: Int, reverseLayout: Boolean) : super(context, orientation, reverseLayout)
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int, defStyleRes: Int) : super(context, attrs, defStyleAttr, defStyleRes)
 
+    private var isScrollEnabled = true
+
     override fun smoothScrollToPosition(recyclerView: RecyclerView, state: RecyclerView.State, position: Int) {
         val centerSmoothScroller = CenterSmoothScroller(recyclerView.context)
         centerSmoothScroller.targetPosition = position
         startSmoothScroll(centerSmoothScroller)
     }
 
-    private class CenterSmoothScroller(context: Context) : LinearSmoothScroller(context) {
+    override fun canScrollHorizontally(): Boolean {
+        return isScrollEnabled && super.canScrollHorizontally()
+    }
+
+    fun setScrollEnabled(value: Boolean){
+        isScrollEnabled = value
+    }
+
+    private inner class CenterSmoothScroller(context: Context) : LinearSmoothScroller(context) {
         override fun calculateDtToFit(viewStart: Int, viewEnd: Int, boxStart: Int, boxEnd: Int, snapPreference: Int): Int{
             var value = 0
 
@@ -28,7 +38,6 @@ class AutoAlignLayoutManager : LinearLayoutManager {
 
             //scroll to start
             value = viewStart * -1
-
             return value
         }
 

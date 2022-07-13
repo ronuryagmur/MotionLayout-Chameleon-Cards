@@ -3,19 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cl_event_item"
-    android:layout_width="160dp"
-    android:layout_height="220dp"
-    android:layout_marginEnd="30dp"
+    android:layout_width="175dp"
+    android:layout_height="240dp"
+    android:layout_marginEnd="40dp"
     android:clickable="true"
     android:focusable="true"
     app:layoutDescription="@xml/list_item_event_scene">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
         android:id="@+id/cl_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:alpha="0.5"
-        android:background="@drawable/fl_radius_cream_20dp">
+        android:background="@drawable/fl_radius_cream_20dp"
+        app:layoutDescription="@xml/list_item_event_container_scene">
 
         <ImageView
             android:id="@+id/iv_clock"
@@ -80,7 +81,8 @@
             android:layout_height="45dp"
             android:background="@drawable/fl_raidus_only_botttom_blue"
             android:padding="5dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:alpha="0"
+            app:layout_constraintTop_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
@@ -129,6 +131,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

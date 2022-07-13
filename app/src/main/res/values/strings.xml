@@ -9,4 +9,9 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="interested"><b>Interested</b></string>
     <string name="utah"><b>Cambridgeshire, Utah</b></string>
+    <string name="interested_events"><b>Interested Events</b></string>
+    <string name="interested_events_desc">Events that you have shown interest in.</string>
+    <string name="date">24th May  -  9:45 PM</string>
+    <string name="ben_howard"><b>Ben Howard Crossroad</b></string>
+    <string name="blackpink"><b>Blackpink Concert</b></string>
 </resources>
